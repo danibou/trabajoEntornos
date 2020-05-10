@@ -52,16 +52,14 @@ public class CalculosMatematicos {
     }
 
     //HECHO POR DANIEL
-    public static void simplificarFraccion (int numerador, int denominador){
+    public static void simplificarFraccion (Fracciones f){
 
-        int max = maxComDiv(numerador,denominador);
+        int max = maxComDiv(f.getNum(),f.getDen());
         while (max>1) {
-            numerador = numerador / max;
-            denominador = denominador / max;
-            max = maxComDiv(numerador, denominador);
+            f.setNum(f.getNum() / max);
+            f.setDen (f.getDen() / max);
+            max = maxComDiv(f.getNum(), f.getDen());
         }
-
-        System.out.println(numerador+"/"+denominador);
 
     }
 
