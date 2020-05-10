@@ -39,12 +39,13 @@ class CalculosMatematicosTest {
     @Test
     void simplificarFraccion() {
         CalculosMatematicos.simplificarFraccion(2,4);
-        Assertions.assertEquals(1,2);
-        Assertions.assertEquals(2,4);
+        // falta la comparacion con lo esperado
     }
 
-
-    @Test
+    //Testado por: daniel bravo
+     @Test
     void minComMultiplo() {
+        int result = CalculosMatematicos.minComMultiplo(12,18);
+        Assertions.assertEquals(36, result);
     }
 }

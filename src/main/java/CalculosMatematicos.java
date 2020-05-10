@@ -54,11 +54,14 @@ public class CalculosMatematicos {
     //HECHO POR DANIEL
     public static void simplificarFraccion (int numerador, int denominador){
 
-       int max = maxComDiv(numerador,denominador);
+        int max = maxComDiv(numerador,denominador);
+        while (max>1) {
+            numerador = numerador / max;
+            denominador = denominador / max;
+            max = maxComDiv(numerador, denominador);
+        }
 
-       numerador =numerador/max;
-       denominador= denominador/max;
-
+        System.out.println(numerador+"/"+denominador);
 
     }
 
