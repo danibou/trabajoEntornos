@@ -37,6 +37,20 @@ public class Fracciones implements Comparable{
     @Override
     public int compareTo(Object o) {
         Fracciones f = (Fracciones) o;
+        if(this.num > f.num && this.den>f.den || this.num>f.num && this.den<f.den)
+            return 1;
+        if(this.num< f.num && this.den<f.den ||this.num<f.num && this.den>f.den)
+            return -1;
         return 0;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Fracciones f = (Fracciones) obj;
+
+        if(f.num == this.num && f.den == this.den)
+            return true;
+        else
+            return false;
     }
 }

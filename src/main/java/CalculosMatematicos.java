@@ -71,4 +71,22 @@ public class CalculosMatematicos {
         mcm = (a/maxComDiv(a, b))*b;
         return mcm;
     }
+
+    //HECHO POR CARLOS
+    public static Fracciones sumaDeFracciones(Fracciones f1, Fracciones f2){
+        Fracciones resultado = new Fracciones();
+        resultado.setDen(f1.getDen()*f2.getDen());
+        resultado.setNum((f1.getNum()*f2.getDen()) + (f2.getNum()*f1.getDen()));
+
+        return resultado;
+    }
+
+    //HECHO POR CARLOS
+    public static Fracciones restaDeFracciones(Fracciones f1, Fracciones f2){
+        Fracciones resultado = new Fracciones();
+        resultado.setDen(f1.getDen()*f2.getDen());
+        resultado.setNum((f1.getNum()*f2.getDen()) - (f2.getNum()*f1.getDen()));
+
+        return resultado;
+    }
 }

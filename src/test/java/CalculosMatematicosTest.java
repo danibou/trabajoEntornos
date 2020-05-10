@@ -36,10 +36,14 @@ class CalculosMatematicosTest {
         Assertions.assertEquals(33, result);
     }
 
+    //Testeado por: Carlos Perez
     @Test
     void simplificarFraccion() {
-        CalculosMatematicos.simplificarFraccion(2,4);
-        // falta la comparacion con lo esperado
+        Fracciones resultado = new Fracciones(100,25);
+        Fracciones esperado = new Fracciones(4,1);
+        CalculosMatematicos.simplificarFraccion(resultado);
+        boolean result = resultado.equals(esperado);
+        Assertions.assertEquals(true,result);
     }
 
     //Testado por: daniel bravo
@@ -47,5 +51,15 @@ class CalculosMatematicosTest {
     void minComMultiplo() {
         int result = CalculosMatematicos.minComMultiplo(12,18);
         Assertions.assertEquals(36, result);
+    }
+
+    @Test
+    void sumaDeFracciones() {
+        Fracciones f1 = new Fracciones(100, 25);
+        Fracciones f2 = new Fracciones(42, 17);
+        Fracciones resultado = CalculosMatematicos.sumaDeFracciones(f1,f2);
+        Fracciones esperado = new Fracciones(4200,2750);
+        boolean result = resultado.equals(esperado);
+        Assertions.assertEquals(true,result);
     }
 }
