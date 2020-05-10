@@ -15,17 +15,21 @@ class CalculosMatematicosTest {
     void descomposicionEnNumPrimos() {
     }
 
+    //Testeado por: Daniel Bravo
     @Test
     void esPrimo() {
         boolean result = CalculosMatematicos.esPrimo(7);
         Assertions.assertEquals(true, result);
     }
+    //Testeado por: Daniel Bravo
     @Test
     void esPrimo2() {
         boolean result = CalculosMatematicos.esPrimo(8);
         Assertions.assertEquals(false, result);
     }
 
+
+    //Testeado por: Carlos Perez
     @Test
     void maxComDiv() {
         int result = CalculosMatematicos.maxComDiv(99,33);
@@ -40,4 +44,7 @@ class CalculosMatematicosTest {
     }
 
 
+    @Test
+    void minComMultiplo() {
+    }
 }

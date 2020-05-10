@@ -1,4 +1,4 @@
-public class Fracciones {
+public class Fracciones implements Comparable{
 
     private int den;
     private int num;
@@ -27,5 +27,16 @@ public class Fracciones {
 
     public void setNum(int num) {
         this.num = num;
+    }
+
+    @Override
+    public String toString(){
+        return this.num+"/"+this.den;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Fracciones f = (Fracciones) o;
+        return 0;
     }
 }

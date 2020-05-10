@@ -37,6 +37,13 @@ public class Consola {
 
     public  static void App(){
         int opcion = 1;
+
+        ArrayList<Fracciones> f = Metodos.obtenerFracciones();
+
+        Fracciones f1 = f.get(0);
+        Fracciones f2 = f.get(1);
+        Fracciones resultado = new Fracciones();
+
         while(opcion != 0){
             inicio();
             opcion = EntradaEntero();
@@ -46,6 +53,14 @@ public class Consola {
                 case 2:
                     break;
                 case 3:
+                    System.out.print("SUMA O RESTA:");
+                    String operacion = EntradaPalabra().toUpperCase();
+                    if(operacion.equalsIgnoreCase("SUMA")){
+                        System.out.print(f1.getNum()+"/"+f1.getDen() + " + " + f2.getNum()+"/"+f2.getDen());
+
+                    }else if(operacion.equalsIgnoreCase("RESTA")){
+                        System.out.print(f1.getNum()+"/"+f1.getDen() + " - " + f2.getNum()+"/"+f2.getDen());
+                    }
                     break;
                 case 4:
                     break;
