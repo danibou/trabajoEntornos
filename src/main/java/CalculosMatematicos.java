@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -41,5 +42,25 @@ public class CalculosMatematicos {
     }
 
 
+    // HECHO POR DANIEL
+public static int maxComDiv (int num, int num2){
+    while (num!=num2) {
+        if (num>num2) {
+            num=num-num2;
+        }else {
+            num2= num2-num;
+        }
+    }return num;
+    }
 
+    //HECHO POR DANIEL
+public static void simplificarFraccion (int numerador, int denominador){
+
+       int max = maxComDiv(numerador,denominador);
+
+       numerador =numerador/max;
+       denominador= denominador/max;
+
+
+}
 }
