@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculosMatematicosTest {
@@ -9,10 +11,6 @@ class CalculosMatematicosTest {
     void esPar() {
         boolean result = CalculosMatematicos.esPar(20);
         Assertions.assertEquals(true, result);
-    }
-
-    @Test
-    void descomposicionEnNumPrimos() {
     }
 
     //Testeado por: Daniel Bravo
@@ -53,7 +51,6 @@ class CalculosMatematicosTest {
         Assertions.assertEquals(36, result);
     }
 
-    //Testado por: daniel bravo
     //TESTEADO POR  ADRIAN CARDIN
     @Test
     void sumaDeFracciones() {
@@ -77,6 +74,7 @@ class CalculosMatematicosTest {
         Assertions.assertEquals(true,result);
     }
 
+    //Testeado por Carlos Perez
     @Test
     void multiplicacionFracciones() {
         Fracciones f1 = new Fracciones(5, 10);

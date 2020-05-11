@@ -43,21 +43,9 @@ public class Consola {
         Fracciones f1 = f.get(0);
         Fracciones f2 = f.get(1);
 
-
-
+        int num;
 
         while(opcion != 0){
-
-            //RESETEAMOS VARIABLES
-            Fracciones resultado;
-            Fracciones userResult = new Fracciones();
-
-            int num;
-            int den;
-            ArrayList<Integer> descomposicionF1;
-            ArrayList<Integer> descomposicionF2;
-            String descomposicion1 = "";
-            String descomposicion2 = "";
 
             System.out.print("\n\nF1: "+f1 + " - F2:" + f2);
             inicio();
@@ -82,37 +70,11 @@ public class Consola {
 
                         if(simplificado.equalsIgnoreCase("SIMPLIFICADO")){
 
-                            System.out.print("Resultado: \n Numerador: ");
-                            num = EntradaEntero();
+                            Operaciones(f1,f2, true, "+");
 
-                            System.out.print(" Denominador: ");
-                            den = EntradaEntero();
-
-                            userResult.setNum(num);
-                            userResult.setDen(den);
-                            resultado = CalculosMatematicos.sumaDeFracciones(f1,f2);
-                            CalculosMatematicos.simplificarFraccion(resultado);
-
-                            if(resultado.equals(userResult))
-                                System.err.println("Respuesta correcta!");
-                            else
-                                System.err.println("Respuesta Incorrecta!");
                         }else if(simplificado.equalsIgnoreCase("SIN_SIMPLIFICAR")){
 
-                            System.out.print("Resultado: \n Numerador: ");
-                            num = EntradaEntero();
-
-                            System.out.print(" Denominador: ");
-                            den = EntradaEntero();
-
-                            userResult.setNum(num);
-                            userResult.setDen(den);
-                            resultado = CalculosMatematicos.sumaDeFracciones(f1,f2);
-
-                            if(resultado.equals(userResult))
-                                System.err.println("Respuesta correcta!");
-                            else
-                                System.err.println("Respuesta Incorrecta!");
+                            Operaciones(f1,f2, false, "+");
 
                         }else{
                             System.err.println("Opcion incorrecta!");
@@ -126,38 +88,11 @@ public class Consola {
 
                         if(simplificado.equalsIgnoreCase("SIMPLIFICADO")){
 
-                            System.out.print("Resultado: \n Numerador: ");
-                            num = EntradaEntero();
-
-                            System.out.print(" Denominador: ");
-                            den = EntradaEntero();
-
-                            userResult.setNum(num);
-                            userResult.setDen(den);
-                            resultado = CalculosMatematicos.restaDeFracciones(f1,f2);
-                            CalculosMatematicos.simplificarFraccion(resultado);
-
-                            if(resultado.equals(userResult))
-                                System.err.println("Respuesta correcta!");
-                            else
-                                System.err.println("Respuesta Incorrecta!");
+                            Operaciones(f1,f2, true, "-");
 
                         }else if(simplificado.equalsIgnoreCase("SIN_SIMPLIFICAR")){
 
-                            System.out.print("Resultado: \n Numerador: ");
-                            num = EntradaEntero();
-
-                            System.out.print("Denominador: ");
-                            den = EntradaEntero();
-
-                            userResult.setNum(num);
-                            userResult.setDen(den);
-                            resultado = CalculosMatematicos.restaDeFracciones(f1,f2);
-
-                            if(resultado.equals(userResult))
-                                System.err.println("Respuesta correcta!");
-                            else
-                                System.err.println("Respuesta Incorrecta!");
+                            Operaciones(f1,f2, false, "-");
 
                         }else{
                             System.err.println("Opcion incorrecta!");
@@ -171,11 +106,41 @@ public class Consola {
                 case 4:
                     CalculosMatematicos.simplificarFraccion(f1);
                     CalculosMatematicos.simplificarFraccion(f2);
-                    System.out.println("Fracciones Simplificadas");
+                    System.out.println("Fracciones Simplificadas!");
                     break;
                 case 5:
+                    System.out.print(f1.getNum()+"/"+f1.getDen() + " / " + f2.getNum()+"/"+f2.getDen());
+                    System.out.println("\nSimplificado = SIMPLIFICADO o sin simplificar = SIN_SIMPLIFICAR: ");
+                    String simplificado = EntradaPalabra().toUpperCase();
+
+                    if(simplificado.equalsIgnoreCase("SIMPLIFICADO")){
+
+                        Operaciones(f1,f2, true, "/");
+
+                    }else if(simplificado.equalsIgnoreCase("SIN_SIMPLIFICAR")){
+
+                        Operaciones(f1,f2, false, "/");
+
+                    }else{
+                        System.err.println("Opcion incorrecta!");
+                    }
                     break;
                 case 6:
+                    System.out.print(f1.getNum()+"/"+f1.getDen() + " * " + f2.getNum()+"/"+f2.getDen());
+                    System.out.println("\nSimplificado = SIMPLIFICADO o sin simplificar = SIN_SIMPLIFICAR: ");
+                    simplificado = EntradaPalabra().toUpperCase();
+
+                    if(simplificado.equalsIgnoreCase("SIMPLIFICADO")){
+
+                        Operaciones(f1,f2, true, "*");
+
+                    }else if(simplificado.equalsIgnoreCase("SIN_SIMPLIFICAR")){
+
+                        Operaciones(f1,f2, false, "*");
+
+                    }else{
+                        System.err.println("Opcion incorrecta!");
+                    }
                     break;
                 case 7:
                     System.out.println("Introduzca el numero a descomponer: ");
@@ -192,5 +157,44 @@ public class Consola {
 
         }
         teclado.close();
+    }
+
+    public static void Operaciones(Fracciones f1, Fracciones f2, boolean simplificado, String operacion){
+
+        Fracciones resultado;
+        Fracciones userResult = new Fracciones();
+
+        int num;
+        int den;
+
+        System.out.print("Resultado: \n Numerador: ");
+        num = EntradaEntero();
+
+        System.out.print(" Denominador: ");
+        den = EntradaEntero();
+
+        userResult.setNum(num);
+        userResult.setDen(den);
+
+        if(operacion.equalsIgnoreCase("+"))
+            resultado = CalculosMatematicos.sumaDeFracciones(f1,f2);
+        else if(operacion.equalsIgnoreCase("-"))
+            resultado = CalculosMatematicos.restaDeFracciones(f1,f2);
+        else if(operacion.equalsIgnoreCase("*"))
+            resultado = CalculosMatematicos.multiplicacionFracciones(f1,f2);
+        else if(operacion.equalsIgnoreCase("/"))
+            resultado = CalculosMatematicos.divisionFracciones(f1,f2);
+        else
+            resultado = null;
+
+        if(simplificado)
+            CalculosMatematicos.simplificarFraccion(resultado);
+
+        if(resultado.equals(userResult))
+            System.err.println("Respuesta correcta!");
+        else
+            System.err.println("Respuesta Incorrecta!");
+
+        System.err.println("Resultado: " + resultado);
     }
 }
