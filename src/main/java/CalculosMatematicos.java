@@ -54,12 +54,22 @@ public class CalculosMatematicos {
     //HECHO POR DANIEL
     public static void simplificarFraccion (Fracciones f){
 
+        boolean neg = false;
+        if(f.getNum() < 0){
+            f.setNum(-1*f.getNum());
+            neg = true;
+        }
+
         int max = maxComDiv(f.getNum(),f.getDen());
         while (max>1) {
             f.setNum(f.getNum() / max);
-            f.setDen (f.getDen() / max);
+            f.setDen(f.getDen() / max);
+
             max = maxComDiv(f.getNum(), f.getDen());
         }
+
+        if(neg)
+            f.setDen(-1*(f.getDen()));
 
     }
 

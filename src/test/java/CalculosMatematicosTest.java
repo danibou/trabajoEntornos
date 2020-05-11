@@ -53,12 +53,24 @@ class CalculosMatematicosTest {
         Assertions.assertEquals(36, result);
     }
 
+    //Testado por: daniel bravo
     @Test
     void sumaDeFracciones() {
         Fracciones f1 = new Fracciones(100, 25);
         Fracciones f2 = new Fracciones(42, 17);
         Fracciones resultado = CalculosMatematicos.sumaDeFracciones(f1,f2);
         Fracciones esperado = new Fracciones(4200,2750);
+        boolean result = resultado.equals(esperado);
+        Assertions.assertEquals(true,result);
+    }
+
+    @Test
+    void restaDeFracciones() {
+        Fracciones f1 = new Fracciones(100, 25);
+        Fracciones f2 = new Fracciones(42, 17);
+        Fracciones resultado = CalculosMatematicos.restaDeFracciones(f1,f2);
+        Fracciones esperado = new Fracciones(-84,13);
+        CalculosMatematicos.simplificarFraccion(resultado);
         boolean result = resultado.equals(esperado);
         Assertions.assertEquals(true,result);
     }
