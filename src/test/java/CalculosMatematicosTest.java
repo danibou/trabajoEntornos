@@ -6,11 +6,17 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculosMatematicosTest {
-
+    // testeado por: daniel bravo
     @Test
     void esPar() {
         boolean result = CalculosMatematicos.esPar(20);
         Assertions.assertEquals(true, result);
+    }
+    // Testeado por : daniel bravo
+    @Test
+    void esPar2() {
+        boolean result = CalculosMatematicos.esPar(99);
+        Assertions.assertEquals(false, result);
     }
 
     //Testeado por: Daniel Bravo
@@ -84,7 +90,7 @@ class CalculosMatematicosTest {
         boolean result = resultado.equals(esperado);
         Assertions.assertEquals(true,result);
     }
-
+// testeado por: daniel bravo
     @Test
     void divisionFracciones() {
         Fracciones f1 = new Fracciones(10, 10);
