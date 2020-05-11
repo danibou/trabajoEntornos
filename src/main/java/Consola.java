@@ -44,6 +44,7 @@ public class Consola {
         Fracciones f2 = f.get(1);
 
         int num;
+        boolean result = false;
 
         while(opcion != 0){
 
@@ -70,11 +71,11 @@ public class Consola {
 
                         if(simplificado.equalsIgnoreCase("SIMPLIFICADO")){
 
-                            Operaciones(f1,f2, true, "+");
+                            result = Operaciones(f1,f2, true, "+");
 
                         }else if(simplificado.equalsIgnoreCase("SIN_SIMPLIFICAR")){
 
-                            Operaciones(f1,f2, false, "+");
+                            result = Operaciones(f1,f2, false, "+");
 
                         }else{
                             System.err.println("Opcion incorrecta!");
@@ -88,11 +89,11 @@ public class Consola {
 
                         if(simplificado.equalsIgnoreCase("SIMPLIFICADO")){
 
-                            Operaciones(f1,f2, true, "-");
+                            result = Operaciones(f1,f2, true, "-");
 
                         }else if(simplificado.equalsIgnoreCase("SIN_SIMPLIFICAR")){
 
-                            Operaciones(f1,f2, false, "-");
+                            result = Operaciones(f1,f2, false, "-");
 
                         }else{
                             System.err.println("Opcion incorrecta!");
@@ -115,11 +116,11 @@ public class Consola {
 
                     if(simplificado.equalsIgnoreCase("SIMPLIFICADO")){
 
-                        Operaciones(f1,f2, true, "/");
+                        result = Operaciones(f1,f2, true, "/");
 
                     }else if(simplificado.equalsIgnoreCase("SIN_SIMPLIFICAR")){
 
-                        Operaciones(f1,f2, false, "/");
+                        result = Operaciones(f1,f2, false, "/");
 
                     }else{
                         System.err.println("Opcion incorrecta!");
@@ -132,11 +133,11 @@ public class Consola {
 
                     if(simplificado.equalsIgnoreCase("SIMPLIFICADO")){
 
-                        Operaciones(f1,f2, true, "*");
+                        result = Operaciones(f1,f2, true, "*");
 
                     }else if(simplificado.equalsIgnoreCase("SIN_SIMPLIFICAR")){
 
-                        Operaciones(f1,f2, false, "*");
+                        result = Operaciones(f1,f2, false, "*");
 
                     }else{
                         System.err.println("Opcion incorrecta!");
@@ -154,12 +155,16 @@ public class Consola {
                 default:
                     break;
             }
-
+            if(result){
+                f = Metodos.obtenerFracciones();
+                f1 = f.get(0);
+                f2 = f.get(1);
+            }
         }
         teclado.close();
     }
 
-    public static void Operaciones(Fracciones f1, Fracciones f2, boolean simplificado, String operacion){
+    public static boolean Operaciones(Fracciones f1, Fracciones f2, boolean simplificado, String operacion){
 
         Fracciones resultado;
         Fracciones userResult = new Fracciones();
@@ -190,11 +195,13 @@ public class Consola {
         if(simplificado)
             CalculosMatematicos.simplificarFraccion(resultado);
 
-        if(resultado.equals(userResult))
+        if(resultado.equals(userResult)) {
             System.err.println("Respuesta correcta!");
-        else
+            System.err.println("Resultado: " + resultado);
+            return true;
+        }else{
             System.err.println("Respuesta Incorrecta!");
-
-        System.err.println("Resultado: " + resultado);
+            return false;
+        }
     }
 }
