@@ -99,4 +99,26 @@ public class CalculosMatematicos {
 
         return resultado;
     }
+
+    // HECHO POR CARDIN
+    public static Fracciones multiplicacionFracciones(Fracciones f1, Fracciones f2){
+        Fracciones resultado=new Fracciones();
+
+        resultado.setNum(f1.getNum()*f2.getNum());
+        resultado.setDen(f1.getDen()*f2.getDen());
+
+
+        return resultado;
+    }
+
+    // HECHO POR CARDIN
+    public static Fracciones divisionFracciones(Fracciones f1, Fracciones f2){
+        Fracciones resultado=new Fracciones();
+
+        resultado.setNum(f1.getNum()*f2.getDen());
+        resultado.setDen(f1.getDen()*f2.getNum());
+
+
+        return resultado;
+    }
 }
